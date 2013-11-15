@@ -88,7 +88,7 @@ def uploadform(request):
         if UploadModel.objects.filter(first_name__contains=form_data['first_name']).filter(last_name__contains=form_data['last_name']):
             
             db_field = UploadModel.objects.filter(first_name__contains=form_data['first_name']).filter(last_name__contains=form_data['last_name'])
-            
+            file_db = FileNameModel
             db_field.update(
                 email=form_data['email'],
                 phone=form_data['phone'],
@@ -96,6 +96,8 @@ def uploadform(request):
                 dirname=make_dir(form_data),
                 checked_by='',
                 has_been_checked=False)
+            file_db.objects.filter(user__first_name=form_data['first_name'], user__last_name=form_data['last_name']).delete()
+
 
             url = reverse('upload', kwargs={'user_id': db_field[0].id})
             return HttpResponseRedirect(url)
@@ -125,10 +127,11 @@ def upload_files(request, user_id):
     shutil.move(temp_file, dest_dir)
 
     #UploadModel.objects.filter(id__contains=url_id[2]).update(file_name=files.name)
-    new_file = FileNameModel()
-    new_file.user = user
-    new_file.file_name = files.name
-    new_file.save()
+    if os.path.isfile(dest_dir):
+        new_file = FileNameModel()
+        new_file.user = user
+        new_file.file_name = files.name
+        new_file.save()
 
     return HttpResponse(UploadModel.objects.get(id=url_id[2]).dirname)
 

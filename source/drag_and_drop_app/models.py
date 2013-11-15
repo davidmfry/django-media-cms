@@ -17,7 +17,8 @@ class UploadModel(models.Model):
 
 class FileNameModel(models.Model):
 	user = models.ForeignKey(UploadModel)
-	file_name = file_name = models.CharField(max_length = 500)
+	file_name = models.CharField(max_length = 500)
+	#test_file_name = models.FileField(upload_to='none')
 
 	def __unicode__(self):
 		return str(self.user) + ': ' + self.file_name
