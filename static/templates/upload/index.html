@@ -1,0 +1,35 @@
+{%  extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/form">Client Projects</a></li>
+            <li role="presentation"><a href="/master">Master Control</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Video CMS</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Video CMS Prototype</h1>
+        <h3>For best viewing use chrome</h3>
+        <p class="lead">This is a Python Django Web App to allow our clients to drag and drop files on a web page to upload to our broadcast system.
+            This would have became the basis for our video content management system. In contrast, the client had to use a cumbersome
+            FTP program prior to the web app. This made the process of uploading video and images into our computer system smoother and easier.  </p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>/master</h4>
+          <p>Open this route in another webpage that you can view at the same time as the /form.  This route is where an admin or master control person could view all of the
+              video and image content coming in from all of the clients.  It allowed them to preview, comment and accept.  When they accept the content and auto email is sent out.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>/form</h4>
+          <p>This route would be for the client.  They add all there information into the form and submit. Then they are taken to the drag and drop upload section.</p>
+      </div>
+    </div> <!-- /container -->
+{% endblock %}

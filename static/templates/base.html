@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}">
+            
+	
+	<!-- Google web fonts -->
+        <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+    </head>
+    
+    <body>
+        {% block content %}
+        
+        {% endblock %}
+	    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <!--<script src="http://v3.javascriptmvc.com/jquery/dist/jquery.formparams.js"></script>-->
+
+       <script src="{% static 'js/lib/bootstrap/bootstrap.min.js' %}"></script>
+
+    </body>
+    
+</html>
